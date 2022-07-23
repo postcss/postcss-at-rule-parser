@@ -6,3 +6,5 @@ node_modules
 *.local
 .eslintcache
 /.vscode/
+/dist/
+yarn.lock
