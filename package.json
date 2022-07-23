@@ -2,15 +2,17 @@
   "name": "postcss-at-rule-parser",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.bundle.js",
   "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "run-p format:js format:md format:json",
-    "format:js": "prettier --config ./package.json --write './**/*.{js,ts,mjs}'",
+    "format:js": "prettier --config ./package.json --write './src/**/*.{js,ts,mjs}'",
     "format:md": "prettier --parser markdown --write './**/*.md'",
     "format:json": "prettier --parser json --write './**/*.json'",
-    "lint": "eslint . -c ./.eslintrc.yml './**/*.{ts,tsx,js}'",
-    "lint:fix": "eslint . -c ./.eslintrc.yml './**/*.{ts,tsx,js}' --fix"
+    "lint": "eslint . -c ./.eslintrc.yml './src/**/*.{ts,tsx,js}'",
+    "lint:fix": "eslint . -c ./.eslintrc.yml './src/**/*.{ts,tsx,js}' --fix"
   },
   "repository": "postcss/postcss-at-rule-parser",
   "keywords": [
@@ -34,6 +36,10 @@
     "arrowParens": "always"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/css-tree": "^1.0.7",
+    "@types/node": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",
@@ -44,6 +50,9 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
+    "rollup": "^2.77.0",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
