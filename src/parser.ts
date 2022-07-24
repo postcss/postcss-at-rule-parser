@@ -1,5 +1,5 @@
 import autoBind from 'auto-bind'
-import { ParseOptions, parse, CssNode } from 'css-tree'
+import { ParseOptions, parse, CssNode, generate, GenerateOptions } from 'css-tree'
 import { Root } from 'postcss'
 
 import pipeThroughAllPatches from './patches'
@@ -40,6 +40,19 @@ class Parser {
    */
   toPostcssAst(): Root {
     throw Error('Unimplemented')
+  }
+
+  /**
+   * Serilizing css-tree ast to string
+   * @param opts css-tree generate options
+   * @returns { string | undefined } string if we have ast, otherwise it's undefined
+   */
+  toCssString(opts?: GenerateOptions): string | undefined {
+    if (!this.ast) {
+      return undefined
+    }
+
+    return generate(this.ast, opts)
   }
 }
 
