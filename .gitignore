@@ -8,3 +8,7 @@ node_modules
 /.vscode/
 /dist/
 yarn.lock
+
+#Added by cargo
+/target
+Cargo.lock
