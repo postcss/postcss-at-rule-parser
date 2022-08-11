@@ -1,0 +1,27 @@
+[package]
+name = "swc-css-parser-glue"
+version = "0.0.1"
+description = "SWC CSS parser glue code"
+authors = ["yisibl"]
+edition = "2021"
+publish = false
+
+[lib]
+path = "crate/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+console_error_panic_hook = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+swc_common = "0.27"
+swc_css_ast = "0.105.1"
+swc_css_parser = "0.114.0"
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.4"
+
+[profile.release]
+lto = true    # Enable Link Time Optimization
+opt-level = 3
+# Setting this to 1 may improve the performance of generated code, but may be slower to compile.
+# https://doc.rust-lang.org/rustc/codegen-options/index.html#codegen-units
+codegen-units = 1

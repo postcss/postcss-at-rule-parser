@@ -18,7 +18,8 @@
     "format:md": "prettier --parser markdown --write './**/*.md'",
     "format:json": "prettier --parser json --write './**/*.json'",
     "lint": "eslint . -c ./.eslintrc.yml './src/**/*.{ts,tsx,js}'",
-    "lint:fix": "eslint . -c ./.eslintrc.yml './src/**/*.{ts,tsx,js}' --fix"
+    "lint:fix": "eslint . -c ./.eslintrc.yml './src/**/*.{ts,tsx,js}' --fix",
+    "build:wasm": "wasm-pack build --target nodejs --out-name index --release"
   },
   "repository": "postcss/postcss-at-rule-parser",
   "keywords": [
