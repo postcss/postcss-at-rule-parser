@@ -17,7 +17,7 @@ struct Error {
 }
 
 // TODO: napi-rs binding
-#[wasm_bindgen]
+#[cfg_attr(target_arch = "wasm32", wasm_bindgen)]
 pub fn parse(code: String, allow_wrong_line_comments: bool) -> Result<JsValue, JsError> {
     console_error_panic_hook::set_once();
 
