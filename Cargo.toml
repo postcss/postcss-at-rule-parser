@@ -14,10 +14,19 @@ crate-type = ["cdylib", "rlib"]
 console_error_panic_hook = "0.1"
 serde = { version = "1.0", features = ["derive"] }
 swc_common = "0.27"
-swc_css_ast = "0.105.1"
-swc_css_parser = "0.114.0"
+swc_css_ast = "0.108.0"
+swc_css_parser = "0.117.0"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
 wasm-bindgen = "0.2"
-serde-wasm-bindgen = "0.4"
+serde-wasm-bindgen = "0.4.3"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+napi = { version = "2.8.0", default-features = false, features = ["napi4", "serde-json", "async"] }
+napi-derive = "2.8.0"
+
+[build-dependencies]
+napi-build = "2.0.1"
 
 [profile.release]
 lto = true    # Enable Link Time Optimization
