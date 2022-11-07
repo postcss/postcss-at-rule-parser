@@ -13,38 +13,8 @@
  * copies or substantial portions of the Software.
  */
 
-/**
- * This module exports all patches of css-tree for further parse css feature that it simply does not supported yet
- *
- * @module
- */
-
 import { Atrule } from 'css-tree'
 
-import { patchMedia } from './media'
-
-/**
- * Pipe input ast through all patches and hydrade the ast
- * @param ast input css ast
- */
-export function pipeThroughAllPatchesSync(ast: Atrule[]) {
-  for (const atrule of ast) {
-    if (atrule.type !== 'Atrule') continue
-
-    switch (atrule.name) {
-      case 'media':
-        patchMedia(atrule)
-        break
-      default:
-        break
-    }
-  }
-}
-
-/**
- * Pipe input ast through all patches and hydrade the ast
- * @param _ast input css ast
- */
-export function pipeThroughAllPatches(_ast: Atrule[]) {
-  /* NOOP */
+export function patchMedia(ast: Atrule) {
+  console.log(ast)
 }

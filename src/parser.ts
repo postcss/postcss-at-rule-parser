@@ -1,8 +1,24 @@
+/**
+ * The MIT License (MIT)
+ *
+ * Copyright 2022 yisibl(一丝) https://github.com/yisibl
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ */
+
 import autoBind from 'auto-bind'
-import { ParseOptions, parse, CssNode, generate, GenerateOptions } from 'css-tree'
+import { ParseOptions, parse, CssNode, generate, GenerateOptions, Atrule } from 'css-tree'
 import { Root } from 'postcss'
 
-import pipeThroughAllPatches from './patches'
+import { pipeThroughAllPatchesSync, pipeThroughAllPatches } from './patches'
+import { isAtRule } from './utils'
 
 class Parser {
   private readonly input: string
@@ -20,9 +36,23 @@ class Parser {
    * Parsing input css string into css-tree ast
    * @returns {this}
    */
-  parse(): Parser {
+  parseSync(): Parser {
     this.ast = parse(this.input, this.opts)
-    pipeThroughAllPatches(this.ast)
+    if (this.ast.type === 'StyleSheet') {
+      pipeThroughAllPatchesSync(this.ast.children.filter(isAtRule) as unknown as Atrule[])
+    }
+
+    return this
+  }
+
+  /**
+   * Parsing input css string into css-tree ast asynchronously
+   */
+  async parse(): Promise<Parser> {
+    this.ast = parse(this.input, this.opts)
+    if (this.ast.type === 'StyleSheet') {
+      await pipeThroughAllPatches(this.ast.children.filter(isAtRule) as unknown as Atrule[])
+    }
     return this
   }
 
