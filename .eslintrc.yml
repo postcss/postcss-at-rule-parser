@@ -1,56 +1,56 @@
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 
 parserOptions:
-    ecmaFeatures:
-        jsx: true
-    ecmaVersion: latest
-    sourceType: module
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: latest
+  sourceType: module
 
 env:
-    # browser: true # who will run postcss in browser?
-    es6: true
-    node: true
-    jest: true
+  # browser: true # who will run postcss in browser?
+  es6: true
+  node: true
+  jest: true
 
 plugins:
-    - prettier
+  - prettier
 
 extends:
-    - plugin:prettier/recommended
-    - eslint:recommended
+  - plugin:prettier/recommended
+  - eslint:recommended
 overrides:
-    - files:
-          - ./**/*.{ts,tsx}
-      rules:
-          "no-unused-vars": [2, { varsIgnorePattern: "^_", argsIgnorePattern: "^_", ignoreRestSiblings: true }]
-    - files:
-          - ./**/*{.ts,.tsx}
-      plugins:
-          - "@typescript-eslint"
-      parserOptions:
-          project: ./tsconfig.json
-      rules:
-          "@typescript-eslint/member-ordering":
+  - files:
+      - ./**/*.{ts,tsx}
+    rules:
+      'no-unused-vars': [2, { varsIgnorePattern: '^_', argsIgnorePattern: '^_', ignoreRestSiblings: true }]
+  - files:
+      - ./**/*{.ts,.tsx}
+    plugins:
+      - '@typescript-eslint'
+    parserOptions:
+      project: ./tsconfig.json
+    rules:
+      '@typescript-eslint/member-ordering':
+        [
+          2,
+          {
+            default:
               [
-                  2,
-                  {
-                      default:
-                          [
-                              "public-static-field",
-                              "protected-static-field",
-                              "private-static-field",
-                              "public-static-method",
-                              "protected-static-method",
-                              "private-static-method",
-                              "public-instance-field",
-                              "protected-instance-field",
-                              "private-instance-field",
-                              "public-constructor",
-                              "protected-constructor",
-                              "private-constructor",
-                              "public-instance-method",
-                              "protected-instance-method",
-                              "private-instance-method",
-                          ],
-                  },
-              ]
+                'public-static-field',
+                'protected-static-field',
+                'private-static-field',
+                'public-static-method',
+                'protected-static-method',
+                'private-static-method',
+                'public-instance-field',
+                'protected-instance-field',
+                'private-instance-field',
+                'public-constructor',
+                'protected-constructor',
+                'private-constructor',
+                'public-instance-method',
+                'protected-instance-method',
+                'private-instance-method',
+              ],
+          },
+        ]
