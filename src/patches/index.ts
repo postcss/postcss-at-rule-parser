@@ -4,12 +4,12 @@
  * @module
  */
 
-import { CssNode } from 'css-tree'
+import { CssNode } from "css-tree";
 
 /**
  * Pipe input ast through all patches and hydrade the ast
  * @param _ast input css ast
  */
 export default function pipeThroughAllPatches(_ast: CssNode) {
-  /* NOOP */
+    /* NOOP */
 }

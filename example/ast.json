@@ -1,116 +1,116 @@
 {
-  "ast": {
-    "type": "Stylesheet",
-    "span": {
-      "start": 1,
-      "end": 29,
-      "ctxt": 0
-    },
-    "rules": [
-      {
-        "type": "AtRule",
+    "ast": {
+        "type": "Stylesheet",
         "span": {
-          "start": 1,
-          "end": 29,
-          "ctxt": 0
-        },
-        "name": {
-          "type": "Ident",
-          "span": {
-            "start": 2,
-            "end": 7,
-            "ctxt": 0
-          },
-          "value": "media",
-          "raw": "media"
-        },
-        "prelude": {
-          "type": "MediaQueryList",
-          "span": {
-            "start": 8,
-            "end": 25,
-            "ctxt": 0
-          },
-          "queries": [
-            {
-              "type": "MediaQuery",
-              "span": {
-                "start": 8,
-                "end": 25,
-                "ctxt": 0
-              },
-              "condition": {
-                "type": "MediaCondition",
-                "span": {
-                  "start": 8,
-                  "end": 25,
-                  "ctxt": 0
-                },
-                "conditions": [
-                  {
-                    "type": "MediaFeatureRange",
-                    "span": {
-                      "start": 8,
-                      "end": 25,
-                      "ctxt": 0
-                    },
-                    "left": {
-                      "type": "Ident",
-                      "span": {
-                        "start": 9,
-                        "end": 14,
-                        "ctxt": 0
-                      },
-                      "value": "width",
-                      "raw": "width"
-                    },
-                    "comparison": "<=",
-                    "right": {
-                      "type": "Length",
-                      "span": {
-                        "start": 18,
-                        "end": 24,
-                        "ctxt": 0
-                      },
-                      "value": {
-                        "type": "Number",
-                        "span": {
-                          "start": 18,
-                          "end": 22,
-                          "ctxt": 0
-                        },
-                        "value": 1200,
-                        "raw": "1200"
-                      },
-                      "unit": {
-                        "type": "Ident",
-                        "span": {
-                          "start": 22,
-                          "end": 24,
-                          "ctxt": 0
-                        },
-                        "value": "px",
-                        "raw": "px"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "block": {
-          "type": "SimpleBlock",
-          "span": {
-            "start": 27,
+            "start": 1,
             "end": 29,
             "ctxt": 0
-          },
-          "name": "{",
-          "value": []
-        }
-      }
-    ]
-  },
-  "errors": []
+        },
+        "rules": [
+            {
+                "type": "AtRule",
+                "span": {
+                    "start": 1,
+                    "end": 29,
+                    "ctxt": 0
+                },
+                "name": {
+                    "type": "Ident",
+                    "span": {
+                        "start": 2,
+                        "end": 7,
+                        "ctxt": 0
+                    },
+                    "value": "media",
+                    "raw": "media"
+                },
+                "prelude": {
+                    "type": "MediaQueryList",
+                    "span": {
+                        "start": 8,
+                        "end": 25,
+                        "ctxt": 0
+                    },
+                    "queries": [
+                        {
+                            "type": "MediaQuery",
+                            "span": {
+                                "start": 8,
+                                "end": 25,
+                                "ctxt": 0
+                            },
+                            "condition": {
+                                "type": "MediaCondition",
+                                "span": {
+                                    "start": 8,
+                                    "end": 25,
+                                    "ctxt": 0
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "MediaFeatureRange",
+                                        "span": {
+                                            "start": 8,
+                                            "end": 25,
+                                            "ctxt": 0
+                                        },
+                                        "left": {
+                                            "type": "Ident",
+                                            "span": {
+                                                "start": 9,
+                                                "end": 14,
+                                                "ctxt": 0
+                                            },
+                                            "value": "width",
+                                            "raw": "width"
+                                        },
+                                        "comparison": "<=",
+                                        "right": {
+                                            "type": "Length",
+                                            "span": {
+                                                "start": 18,
+                                                "end": 24,
+                                                "ctxt": 0
+                                            },
+                                            "value": {
+                                                "type": "Number",
+                                                "span": {
+                                                    "start": 18,
+                                                    "end": 22,
+                                                    "ctxt": 0
+                                                },
+                                                "value": 1200,
+                                                "raw": "1200"
+                                            },
+                                            "unit": {
+                                                "type": "Ident",
+                                                "span": {
+                                                    "start": 22,
+                                                    "end": 24,
+                                                    "ctxt": 0
+                                                },
+                                                "value": "px",
+                                                "raw": "px"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "block": {
+                    "type": "SimpleBlock",
+                    "span": {
+                        "start": 27,
+                        "end": 29,
+                        "ctxt": 0
+                    },
+                    "name": "{",
+                    "value": []
+                }
+            }
+        ]
+    },
+    "errors": []
 }
