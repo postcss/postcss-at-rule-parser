@@ -6,12 +6,13 @@ module.exports = {
   transform: {
     // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
     // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
-    '^.+\\.tsx?$': [
+    '^.+\\.(j|t)sx?$': [
       'ts-jest',
       {
         // ts-jest configuration goes here
-        useESM: true,
+        useESM: false,
       },
     ],
   },
+  transformIgnorePatterns: ['node_modules/(?!auto-bind)'],
 }

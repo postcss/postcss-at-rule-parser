@@ -19,7 +19,7 @@
  * @module
  */
 
-import { Atrule } from 'css-tree'
+import { Atrule, List } from 'css-tree'
 
 import { patchMedia } from './media'
 
@@ -27,7 +27,7 @@ import { patchMedia } from './media'
  * Pipe input ast through all patches and hydrade the ast
  * @param ast input css ast
  */
-export function pipeThroughAllPatchesSync(ast: Atrule[]) {
+export function pipeThroughAllPatchesSync(ast: List<Atrule>) {
   for (const atrule of ast) {
     if (atrule.type !== 'Atrule') continue
 
@@ -45,6 +45,6 @@ export function pipeThroughAllPatchesSync(ast: Atrule[]) {
  * Pipe input ast through all patches and hydrade the ast
  * @param _ast input css ast
  */
-export function pipeThroughAllPatches(_ast: Atrule[]) {
+export function pipeThroughAllPatches(_ast: List<Atrule>) {
   /* NOOP */
 }

@@ -14,7 +14,7 @@
  */
 
 import autoBind from 'auto-bind'
-import { ParseOptions, parse, CssNode, generate, GenerateOptions, Atrule } from 'css-tree'
+import { ParseOptions, parse, CssNode, generate, GenerateOptions, Atrule, List } from 'css-tree'
 import { Root } from 'postcss'
 
 import { pipeThroughAllPatchesSync, pipeThroughAllPatches } from './patches'
@@ -39,7 +39,7 @@ class Parser {
   parseSync(): Parser {
     this.ast = parse(this.input, this.opts)
     if (this.ast.type === 'StyleSheet') {
-      pipeThroughAllPatchesSync(this.ast.children.filter(isAtRule) as unknown as Atrule[])
+      pipeThroughAllPatchesSync(this.ast.children.filter(isAtRule) as List<Atrule>)
     }
 
     return this
@@ -51,7 +51,7 @@ class Parser {
   async parse(): Promise<Parser> {
     this.ast = parse(this.input, this.opts)
     if (this.ast.type === 'StyleSheet') {
-      await pipeThroughAllPatches(this.ast.children.filter(isAtRule) as unknown as Atrule[])
+      await pipeThroughAllPatches(this.ast.children.filter(isAtRule) as List<Atrule>)
     }
     return this
   }

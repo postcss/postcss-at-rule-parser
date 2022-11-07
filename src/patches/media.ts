@@ -16,5 +16,5 @@
 import { Atrule } from 'css-tree'
 
 export function patchMedia(ast: Atrule) {
-  console.log(ast)
+  let _ = ast
 }
